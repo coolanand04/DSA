@@ -1,0 +1,153 @@
+// "static void main" must be defined in a public class.
+public class Main {
+    
+    
+    
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+       int n = sc.nextInt();
+       int a[][] = new int[n][n];
+        
+        for(int i = 0; i < n; i++)
+        {
+            for(int j = 0; j < n; j++)
+            {
+                a[i][j] = sc.nextInt();
+
+            }
+        }
+        String s = sc.nextLine();
+        s = s.trim();
+        
+        System.out.println("s value =" + s);
+ 
+        
+        String ans;
+        
+        if(s.equals("RLR"))
+        {
+           ans = "R";
+        }
+        else if(s.equals("RRR"))
+        {
+                       ans = "L";
+        }
+        else if(s.equals("RRL"))
+        {
+                      ans = "R";
+        }
+        else if(s.equals("RLL"))
+        {
+                      ans = "L";
+        }
+        else if(s.equals("LLL"))
+        {
+                      ans = "R";
+        }
+        else if(s.equals("LLR"))
+        {
+                      ans = "L";
+        }
+        else if(s.equals("LRR"))
+        {
+                      ans = "R";
+        }
+        else if(s.equals("RLR"))
+        {
+                       ans = "R";
+        }
+        else if(s.equals("LRL"))
+        {
+                      ans = "L";
+        }
+        else
+        {
+            ans = "skdfj";  
+        }
+  
+        
+        
+    System.out.println("ans value = " + ans);
+    System.out.println("s value = " + s);
+        
+        if(ans == "R")
+        {
+        System.out.println(" Transpose of Matrix ");
+        for(int i = 0; i < n; i++)
+        {
+            for(int j = 0; j < i; j++)
+                {
+                  int c = a[i][j];
+                  a[i][j] = a[j][i];
+                  a[j][i] = c;  
+                }
+        }
+        
+        System.out.println("for right rotation");
+        for(int i = 0; i < n; i++)
+            
+        {
+            int l = 0;
+            int r = (n-1);
+            while(l < r)
+            {
+                int c = a[i][l];
+                a[i][l] = a[i][r];
+                a[i][r] = c;
+                l++;
+                r--;
+            }
+        }
+            
+        }
+        else if(ans == "L")
+        {
+            
+        System.out.println(" Transpose of Matrix ");
+        for(int i = 0; i < n; i++)
+        {
+            for(int j = 0; j < i; j++)
+                {
+                  int c = a[i][j];
+                  a[i][j] = a[j][i];
+                  a[j][i] = c;  
+                }
+        }
+        
+        
+        System.out.println("for left rotation");
+        for(int i = 0; i < n; i++)
+            
+        {
+            int l = 0;
+            int r = (n-1);
+            while(l < r)
+            {
+                int c = a[l][i];
+                a[l][i] = a[r][i];
+                a[r][i] = c;
+                l++;
+                r--;
+            }
+        }
+            
+        }
+        
+        
+        
+        for(int i = 0; i < n; i++)
+        {
+            for(int j = 0; j < n; j++)
+            {
+                System.out.print(a[i][j] + " ");
+            }
+            System.out.println(" ");
+        }
+
+        
+       
+    }
+    
+    
+    
+}
