@@ -1,0 +1,79 @@
+// "static void main" must be defined in a public class.
+public class Main {
+    int visited[] = new int[10];
+    
+    
+    static List<Integer> graph[] = new LinkedList[10];
+    
+    void BFS(int n)
+    {
+        Queue<Integer> q = new LinkedList<>();
+        q.add(n);
+        visited[n] = 1;
+        
+        while(q.size()>0)
+        {
+           int curr = q.peek();
+            System.out.println(curr);
+            q.remove();
+            
+            
+            for(int x : graph[curr])
+            {
+                if(visited[x] == 0)
+                {
+                   q.add(x);
+                    visited[x] = 1;
+                }
+            }
+            
+        
+        }
+        
+    }
+    
+    
+    
+    void printGraph(int n)
+    {
+        for(int i = 1;i<=n;i++)
+        {
+            System.out.print(i + " => ");
+            
+            for(int curr : graph[i])
+            {
+                System.out.print(curr + " ");
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void main(String[] args) {
+        
+        for(int i = 0;i<10;i++)
+        {
+            graph[i] = new LinkedList<Integer>();
+	    }
+        
+        Scanner sc = new Scanner(System.in);
+        
+        int n,e;
+        n = sc.nextInt();
+        e = sc.nextInt();
+        
+        for(int i = 0;i<e;i++)
+        {
+            int a = sc.nextInt();
+            int b = sc.nextInt();
+            
+            graph[a].add(b);
+            graph[b].add(a);
+        }
+        
+        Main ob = new Main();
+        ob.printGraph(n);
+        
+        ob.BFS(1);
+        
+    }
+}
