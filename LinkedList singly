@@ -1,0 +1,58 @@
+class Node{
+        int data;
+        Node next;
+    }
+public class Main {
+    
+    void printLL(Node head)
+    {
+       while(head.next != null)
+        {
+            System.out.println(head.data);
+            head = head.next;
+        }
+         
+    }
+    
+    public static void main(String[] args) {
+        Node N1 = new Node();
+        N1.data = 1;
+        
+        Node N2 = new Node();
+        N2.data = 2;
+        
+        Node N3 = new Node();
+        N3.data = 3;
+        
+        Node N4 = new Node();
+        N4.data = 4;
+        
+        Node N5 = new Node();
+        N5.data = 5;
+        
+        Node head = N1;
+        
+        N1.next = N2;
+        N2.next = N3;
+        N3.next = N4;
+        N4.next = N5;
+        
+        Node N6 = new Node();
+        N6.data = 10;
+        
+        // N6.next = N1;
+        // head = N6;
+        
+        
+        N3.next = N6;
+        N6.next = N4;
+        
+        
+        
+        Main N = new Main();
+        N.printLL(head.next);
+        head  = head.next;
+        
+        System.out.println("the head value is"+" " + head.data);      
+    }
+}
